@@ -1,16 +1,10 @@
 FROM rocker/tidyverse
 
-#### Install CRAN or Github packages not included in rocker/tidyverse container.
-# RUN install2.r plumber  # Add more packages separated by spaces.
+RUN install2.r gargle
+RUN installGithub.r rstudio/plumber
 
-RUN installGithub.r rstudio/plumber # Uncomment to add Github packages.
-
-#### Copies the files in this directory to files in your container.
 COPY [".", "./"]
 
-EXPOSE 8000 80 443
-
-#### This starts your R-powered service.
-ENTRYPOINT ["R", "-e", "pr <- plumber::plumb(rev(commandArgs())[1]); pr$run(host='0.0.0.0', port=8000)"]
+ENTRYPOINT ["Rscript", "-e", "pr <- plumber::plumb(commandArgs()[9]); pr$run(host='0.0.0.0', port=as.numeric(Sys.getenv('PORT')))"]
 
 CMD ["Plumber.R"]

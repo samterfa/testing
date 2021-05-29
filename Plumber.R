@@ -1,26 +1,14 @@
 #' @apiTitle My R Service
 #' @apiDescription This service runs R scripts on Google Cloud Run.
 
-print(paste('Test Secret:', Sys.getenv('mySecret')))
-
-mySecret <- Sys.getenv('mySecret')
-
 #* Secret Test
-#* @get /buildsecret
+#* @get /secret
 #* @serializer text
 function(){
   
   Sys.getenv('mySecret')
 }
 
-
-#* Secret Test
-#* @get /runsecret
-#* @serializer text
-function(){
-  
-  mySecret
-}
 # 
 # #* health check
 # #* @get /

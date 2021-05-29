@@ -1,10 +1,20 @@
-FROM rocker/tidyverse
+FROM rocker/shiny-verse
 
-RUN install2.r gargle
-RUN installGithub.r rstudio/plumber
+# Allow copying into Shiny server directories.
+RUN chmod 777 /srv/shiny-server/
+RUN chmod 777 /usr/bin/
 
-COPY [".", "./"]
+# Enable logs.
+ENV SHINY_LOG_STDERR=1 
 
-ENTRYPOINT ["Rscript", "-e", "pr <- plumber::plumb(commandArgs()[9]); pr$run(host='0.0.0.0', port=as.numeric(Sys.getenv('PORT')))"]
 
-CMD ["Plumber.R"]
+COPY global.R /srv/shiny-server/global.R
+COPY app.R /srv/shiny-server/app.R
+
+WORKDIR /srv/shiny-server/
+
+#ENTRYPOINT \
+#echo "mySecret = $mySecret" >> /srv/shiny-server/.Renviron;
+
+CMD \
+/usr/bin/shiny-server;

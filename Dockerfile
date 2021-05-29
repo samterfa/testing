@@ -13,8 +13,4 @@ COPY app.R /srv/shiny-server/app.R
 
 WORKDIR /srv/shiny-server/
 
-#ENTRYPOINT \
-#echo "mySecret = $mySecret" >> /srv/shiny-server/.Renviron;
-
-CMD \
-/usr/bin/shiny-server;
+CMD ["/usr/bin/shiny-server"]

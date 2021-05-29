@@ -22,4 +22,4 @@ USER shiny
 # see https://github.com/rocker-org/shiny/issues/79
 #### CMD ["/srv/shiny-server/my_commands.sh"]
 
-CMD ["sh", "-c", "echo 'mySecret = $mySecret' >> /srv/shiny-server/.Renviron && /usr/bin/shiny-server"]
+ENTRYPOINT ["sh", "-c", "echo mySecret = $mySecret >> /srv/shiny-server/.Renviron && /usr/bin/shiny-server"]

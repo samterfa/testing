@@ -6,6 +6,6 @@ shinyApp(
     textOutput("secret")
   ),
   server = function(input, output) {
-    output$secret <- renderText(nchar(Sys.getenv('mySecret')))
+    output$secret <- renderText(paste0("mySecret = ", Sys.getenv('mySecret')))
   }
 )

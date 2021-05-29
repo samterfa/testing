@@ -20,4 +20,10 @@ USER shiny
 
 # avoid s6 initialization
 # see https://github.com/rocker-org/shiny/issues/79
-CMD ["/srv/shiny-server/my_commands.sh"]
+#### CMD ["/srv/shiny-server/my_commands.sh"]
+
+CMD \
+
+echo "mySecret = $mySecret" >> /srv/shiny-server/.Renviron; \
+
+sh -c /usr/bin/shiny-server

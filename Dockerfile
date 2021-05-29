@@ -7,6 +7,7 @@ RUN chmod 777 /usr/bin/
 # Enable logs.
 ENV SHINY_LOG_STDERR=1 
 
+EXPOSE 8080
 
 COPY global.R /srv/shiny-server/global.R
 COPY app.R /srv/shiny-server/app.R

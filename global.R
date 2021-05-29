@@ -1,1 +1,1 @@
-message(paste('My Secret = ', Sys.getenv('mySecret')))
+message(Sys.getenv('mySecret'))

@@ -16,7 +16,7 @@ ENV SHINY_LOG_STDERR=1
 
 EXPOSE 8080
 
-USER shiny
+### USER shiny
 
 # avoid s6 initialization
 # see https://github.com/rocker-org/shiny/issues/79

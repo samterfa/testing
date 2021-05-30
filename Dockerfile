@@ -4,7 +4,7 @@ FROM rocker/shiny-verse
 RUN chmod 777 /srv/shiny-server/
 RUN chmod 777 /usr/bin/
 
-RUN echo "mySecret = $mySecret" >> /srv/shiny-server/.Renviron 
+RUN echo mySecret = $mySecret >> /srv/shiny-server/.Renviron 
 
 COPY shiny-customized.config /etc/shiny-server/shiny-server.conf
 COPY global.R /srv/shiny-server/global.R

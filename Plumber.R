@@ -21,7 +21,7 @@ function(rows = 2){
   
   htmlTable::htmlTable(
     
-    head(iris, n = rows), 
+    head(iris, n = as.integer(rows)), 
     
     rnames = F
       

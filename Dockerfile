@@ -1,8 +1,15 @@
 FROM rocker/shiny-verse
 
+<<<<<<< HEAD
+# RUN install2.r gargle
+#RUN installGithub.r rstudio/plumber
+
+RUN install2.r plumber htmlTable
+=======
 # Allow copying into Shiny server directories.
 RUN chmod 777 /srv/shiny-server/
 RUN chmod 777 /usr/bin/
+>>>>>>> 13ce9146934c99fe7397832decbf06465bf9363c
 
 COPY shiny-customized.config /etc/shiny-server/shiny-server.conf
 COPY global.R /srv/shiny-server/global.R

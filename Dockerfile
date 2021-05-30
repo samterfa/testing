@@ -10,6 +10,8 @@ COPY app.R /srv/shiny-server/app.R
 COPY startup.sh /srv/shiny-server/startup.sh
 RUN chmod +x /srv/shiny-server/startup.sh
 
+VOLUME ["/myvolume"]
+
 # Enable logs.
 ENV SHINY_LOG_STDERR=1 
 

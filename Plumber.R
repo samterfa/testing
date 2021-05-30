@@ -15,11 +15,11 @@ function(){
 #* Html Table
 #* @get /table
 #* @serializer html
-function(){
+function(n = 5){
   
   htmlTable::htmlTable(
     
-    head(iris), 
+    head(iris, n = n), 
     
     rnames = F
       

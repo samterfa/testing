@@ -11,6 +11,8 @@ function(req, res){
   print(req$PATH_INFO)
   print(req$argsQuery)
   print(req$cookies)
+  print(req$QUERY_STRING)
+  print(req$REMOTE_ADDR)
   
   htmlTable::htmlTable(
     

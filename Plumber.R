@@ -8,7 +8,9 @@ if(Sys.getenv('PORT') == '') Sys.setenv(PORT = 8000)
 #* @serializer html
 function(req, res){
   
-  print(names(req))
+  print(req$PATH_INFO)
+  print(req$argsQuery)
+  print(req$cookies)
   
   htmlTable::htmlTable(
     

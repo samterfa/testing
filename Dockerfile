@@ -1,7 +1,4 @@
-FROM rocker/shiny-verse
-
-# RUN install2.r gargle
-#RUN installGithub.r rstudio/plumber
+FROM rocker/tidyverse
 
 RUN install2.r plumber htmlTable
 

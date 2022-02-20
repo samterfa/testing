@@ -3,25 +3,16 @@
 
 if(Sys.getenv('PORT') == '') Sys.setenv(PORT = 8000)
 
-#* Secret Test
-#* @get /secret
-#* @serializer text
-function(){
-  
-  Sys.getenv('mySecret')
-}
-
-
 #* Html Table
 #* @get /table
 #* @serializer html
-function(rows = 2){
+function(req, res){
   
-  print(rows)
+  print(names(req))
   
   htmlTable::htmlTable(
     
-    head(iris, n = as.integer(rows)), 
+    head(iris, n = 10), 
     
     rnames = F
       

@@ -8,19 +8,23 @@ if(Sys.getenv('PORT') == '') Sys.setenv(PORT = 8000)
 #* @serializer html
 function(req, res){
   
-  print(req$PATH_INFO)
-  print(req$argsQuery)
-  print(req$cookies)
-  print(req$QUERY_STRING)
-  print(req$REMOTE_ADDR)
+  purrr::walk(names(req),
+              function(name){
+                
+                print(name)
+                print(req[name])
+                print('')
+                
+              }
+  )}
+
+htmlTable::htmlTable(
   
-  htmlTable::htmlTable(
-    
-    head(iris, n = 10), 
-    
-    rnames = F
-      
-  )
+  head(iris, n = 10), 
+  
+  rnames = F
+  
+)
 }
 
 

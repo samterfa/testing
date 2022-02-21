@@ -12,19 +12,19 @@ function(req, res){
               function(name){
                 
                 print(name)
-                print(req[name])
+                eval(parse(text = paste0("print(req$", name, ")")))
                 print('')
                 
               }
-  )}
-
-htmlTable::htmlTable(
+  )
   
-  head(iris, n = 10), 
-  
-  rnames = F
-  
-)
+  htmlTable::htmlTable(
+    
+    head(iris, n = 10), 
+    
+    rnames = F
+    
+  )
 }
 
 

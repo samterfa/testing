@@ -8,21 +8,7 @@ if(Sys.getenv('PORT') == '') Sys.setenv(PORT = 8000)
 #* @serializer html
 function(req, res){
   
-  print("REQUEST")
-  
   purrr::walk(names(req),
-              function(name){
-                
-                print(name)
-                eval(parse(text = paste0("print(req$", name, ")")))
-                print('')
-                
-              }
-  )
-  
-  print("RESPONSE")
-   
-  purrr::walk(names(res),
               function(name){
                 
                 print(name)

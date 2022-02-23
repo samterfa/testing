@@ -20,7 +20,7 @@ RUN chmod 777 /usr/bin/
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
 COPY app.R /srv/shiny-server/app.R
 COPY shiny-server.sh /usr/bin/shiny-server.sh
-COPY .Renviron /srv/shiny-server/.Renviron
+# COPY .Renviron /srv/shiny-server/.Renviron
 
 WORKDIR /srv/shiny-server/
 
